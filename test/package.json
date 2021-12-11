@@ -1,0 +1,16 @@
+{
+  "name": "test",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx jasmine"
+  },
+  "author": "kismts",
+  "license": "MIT",
+  "devDependencies": {
+    "better-sqlite3": "^7.4.5",
+    "jasmine": "^3.10.0"
+  }
+}
