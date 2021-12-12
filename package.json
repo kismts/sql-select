@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "A js library for performing SQL like queries on arrays of objects.",
   "main": "./dist/select.js",
-  "keywords": ["sql", "select", "query", "database", "db", "table"],
+  "keywords": ["sql", "select", "object", "arrays of objects", "query", "database", "db", "table"],
   "homepage": "https://github.com/kismts/sql-select#readme",
   "repository": {
     "type": "git",
