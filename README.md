@@ -46,6 +46,8 @@ console.log(drawTable(query()))
 */
 ```
 
+> ***Note:*** *sql-select-utils library can also be downloaded from npm.*
+
 ```javascript
 import { SELECT, FROM, SUM, AVG, MAX, OVER, PARTITION_BY, ORDER_BY, AS } from 'sql-select'
 import { drawTable } from 'sql-select-utils'
@@ -160,8 +162,6 @@ console.log(drawTable(query()))
 3 rows selected
 */
 ```
-
-> ***Note:*** *sql-select-utils library can also be downloaded from npm.*
 
 **With asterisk:**
 
