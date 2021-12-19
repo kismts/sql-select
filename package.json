@@ -1,7 +1,7 @@
 {
   "name": "sql-select",
   "type": "module",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "A js library for performing SQL like queries on arrays of objects.",
   "main": "./dist/select.js",
   "keywords": ["sql", "select", "object", "arrays of objects", "query", "database", "db", "table",
