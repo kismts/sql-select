@@ -99,7 +99,7 @@ describe('scalar functions:', () => {
         SELECT('t1.id', 'name', 't2.age', 'type', 'size',
             ADD('t1.id', 't2.age', 1, 'type', 3, 'size', AS('sum')),
         FROM(input4, JOIN, input5, ON('id', 'id')),
-        WHERE(r => r.type > 3 && (r.sum == null || r.sum > 0)),
+        WHERE(r => r.type > 3),
         ORDER_BY('city', 't2.age'))
 
         const expected =

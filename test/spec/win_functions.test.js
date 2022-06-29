@@ -161,7 +161,7 @@ describe('window functions (without grouping):', () => {
             ADD('add', 'sum', AS('sum2')),
             ADD('t1.id', SUB('t2.age', 'type'), 'size', AS('add')),
         FROM(input4, JOIN, input5, ON('id', 'id')),
-        WHERE(r => r.type > 3 && r.add > -1),
+        WHERE(r => r.type > 3),
         ORDER_BY('sum'))
 
         expect(trim(drawTable(res))).toEqual(trim(table));                          

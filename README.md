@@ -46,8 +46,6 @@ console.log(drawTable(query()))
 */
 ```
 
-> ***Note:*** *sql-select-utils library can also be downloaded from npm.*
-
 ```javascript
 import { SELECT, FROM, SUM, AVG, MAX, OVER, PARTITION_BY, ORDER_BY, AS } from 'sql-select'
 import { drawTable } from 'sql-select-utils'
@@ -162,6 +160,8 @@ console.log(drawTable(query()))
 3 rows selected
 */
 ```
+
+> ***Note:*** *sql-select-utils library can also be downloaded from npm.*
 
 **With asterisk:**
 
@@ -621,40 +621,6 @@ console.log(drawTable(query()))
 */
 ```
 
-> ***Note:*** *To get column value: the **above forms** can be used in the **supplied predicate**.*
-
-**Using scalar alias in WHERE:**
-
-```javascript
-import { SELECT, FROM, WHERE, ADD, AS } from 'sql-select'
-import { drawTable } from 'sql-select-utils'
-
-const input = [
-    { id: 1, name: 'John', size: 10, type: 10 },
-    { id: 2, name: 'Joe', size: 12, type: 6 },
-    { id: 3, name: 'James', size: 8, type:4 }
-]
-
-// result of scalar functions can also be used in where
-const query = () =>
-SELECT('id', 'name', 'size', 'type',
-    ADD('size', 'type', AS('add')),
-FROM(input),
-WHERE(row => row.add < 20))
-
-console.log(drawTable(query()))
-/*
-+----+-------+------+------+-----+
-| id | name  | size | type | add |
-+----+-------+------+------+-----+
-|  2 | Joe   |   12 |    6 |  18 |
-|  3 | James |    8 |    4 |  12 |
-+----+-------+------+------+-----+
-2 rows selected
-*/
-```
-
-
 ## Aggregate functions
 
 **Normal aggregate functions:**
@@ -915,8 +881,6 @@ console.log(drawTable(query()))
 2 rows selected
 */
 ```
-
-> ***Note:*** *To get column value: the **above forms** can be used in the **supplied predicate**.*
 
 ## Window functions
 
@@ -1243,4 +1207,3 @@ console.log(drawTable(query()))
 12 rows selected
 */
 ```
-

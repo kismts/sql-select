@@ -2384,14 +2384,11 @@ const _selectSQL = (params, distinct, top, n) => {
     if (empty) return [];
     if (!star) checkSelects(strs, tkeys, ambs, selected_columns, any_str);
 
-    let input = copy(tkeys), whc = [], gc = [], hc = [], oc = [], sa_used;
+    let input = copy(tkeys), whc = [], gc = [], hc = [], oc = [];
     let scal_names = [], aggr_names = [], win_names = [], sa = [], aa = [], wa = [];
+    if (where) whc = checkWhere(where, input, ambs, 'WHERE');
     if (any_scal) ({ scal_names, sa } = checkScal(scals, input, ambs));
     const sa_input = copy(input);
-    if (where) {
-        whc = checkWhere(where, input, ambs, 'WHERE');
-        sa_used = !nul(intersect(sa, whc));
-    }
 
     if (star) strs = tres;
     const _grouping = groupby || any_aggr;
@@ -2416,9 +2413,8 @@ const _selectSQL = (params, distinct, top, n) => {
     let res = joinTables(tables, columns, inputs, temps);
 
 
-    if (sa_used) executeScalars(res, scals);
     if (where) res = whereFn(where, res);
-    if (!sa_used && any_scal) executeScalars(res, scals);
+    if (any_scal) executeScalars(res, scals);
 
     if (grouping) {
         const used = difference(concat(strs, sa, hc, win_names, oc), wa);

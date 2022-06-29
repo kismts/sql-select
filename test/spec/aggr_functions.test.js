@@ -559,22 +559,18 @@ describe('groupby (without aggregate functions):', () => {
 +--------+-----+
 | city   | add |
 +--------+-----+
-| Berlin |  17 |
 | Berlin |  20 |
 | London |  18 |
 | London |  23 |
 | Madrid |  32 |
-| Paris  |  23 |
-| Paris  | 103 |
-| Rome   |  13 |
 +--------+-----+
-8 rows selected`;
+4 rows selected`;
         
         const res =
         SELECT('city',
             ADD('t1.id', SUB('t2.age', 'type'), 'size', AS('add')),
         FROM(input4, JOIN, input5, ON('id', 'id')),
-        WHERE(r => r.add > 10),
+        WHERE(r => r.size > 4),
         GROUP_BY('city', 'add'),
         HAVING(r => r.add > 11),
         ORDER_BY('city', 'add'))
