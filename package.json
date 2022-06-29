@@ -1,13 +1,13 @@
 {
   "name": "sql-select",
   "type": "module",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "A js library for performing SQL like queries on arrays of objects.",
   "main": "./dist/select.js",
   "keywords": ["sql", "select", "object", "arrays of objects", "query", "database", "db", "table",
-      "groupby", "aggregate", "join", "inner join", "outer join", "semi join", "left join", "left outer join",
-      "right join", "right outer join", "full join", "full outer join", "median", "percentile", "quantile",
-      "aggregate functions", "window functions", "user defined functions", "statistical functions"],
+      "groupby", "aggregate", "join", "inner join", "outer join", "left join", "left outer join",
+      "right join", "right outer join", "full join", "full outer join", 
+      "aggregate functions", "user defined functions"],
   "homepage": "https://github.com/kismts/sql-select#readme",
   "repository": {
     "type": "git",

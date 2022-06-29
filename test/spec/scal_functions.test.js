@@ -1,4 +1,4 @@
-import { SELECT, FROM, JOIN, ON, ORDER_BY, ADD, AS, WHERE, SUB, MUL, createFn, DIV, ID } from '../../dist/select.js'
+import { SELECT, FROM, JOIN, ON, ORDER_BY, ADD, AS, WHERE, SUB, MUL, createFn, DIV } from '../../dist/select.js'
 import { input4, input5, createTable } from './data.js'
 import { drawTable } from './utils.js'
 
