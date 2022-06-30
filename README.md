@@ -51,8 +51,8 @@ console.log(drawTable(query()))
 - [Introduction](#introduction)
 - [Select](#select)
 - [From and joins](#from-and-joins)
-- [Scalar functions](#scalar-functions)
 - [Where](#where)
+- [Scalar functions](#scalar-functions)
 - [Aggregate functions](#aggregate-functions)
 - [Groupby](#groupby)
 - [Having](#having)
@@ -424,6 +424,38 @@ console.log(drawTable(query()))
 */
 ```
 
+## Where
+
+**An example using WHERE:**
+
+```javascript
+import { SELECT, FROM, WHERE } from 'sql-select'
+import { drawTable } from 'sql-select-utils'
+
+const input = [
+    { id: 1, name: 'John', size: 10 },
+    { id: 2, name: 'Joe', size: 12 },
+    { id: 3, name: 'James', size: 8 }
+]
+
+// row['size'], row["size"], row[`size`] forms are also acceptable
+const query = () =>
+SELECT('id', 'name', 'size',
+FROM(input),
+WHERE(row => row.size > 9))
+
+console.log(drawTable(query()))
+/*
++----+------+------+
+| id | name | size |
++----+------+------+
+|  1 | John |   10 |
+|  2 | Joe  |   12 |
++----+------+------+
+2 rows selected
+*/
+```
+
 ## Scalar functions
 
 **Simple and nested scalar functions:**
@@ -496,38 +528,6 @@ console.log(drawTable(query()))
 |  3 | James | JAMES           |
 +----+-------+-----------------+
 3 rows selected
-*/
-```
-
-## Where
-
-**An example using WHERE:**
-
-```javascript
-import { SELECT, FROM, WHERE } from 'sql-select'
-import { drawTable } from 'sql-select-utils'
-
-const input = [
-    { id: 1, name: 'John', size: 10 },
-    { id: 2, name: 'Joe', size: 12 },
-    { id: 3, name: 'James', size: 8 }
-]
-
-// row['size'], row["size"], row[`size`] forms are also acceptable
-const query = () =>
-SELECT('id', 'name', 'size',
-FROM(input),
-WHERE(row => row.size > 9))
-
-console.log(drawTable(query()))
-/*
-+----+------+------+
-| id | name | size |
-+----+------+------+
-|  1 | John |   10 |
-|  2 | Joe  |   12 |
-+----+------+------+
-2 rows selected
 */
 ```
 
