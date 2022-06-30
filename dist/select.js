@@ -1122,9 +1122,7 @@ const _selectSQL = (params, distinct, top, n) => {
     }
 
     if (orderby) oc = checkOrderBy(orderby, input, grouping ? [] : ambs);
-
     const used = concat(strs, scal_names, aggr_names, gc, whc, grouping ? [] : oc);
-
     const aliases = grouping ? append(sa, aa) : sa;
     const columns = difference(used, aliases);
     let res = joinTables(tables, columns, inputs, temps);
@@ -1133,7 +1131,6 @@ const _selectSQL = (params, distinct, top, n) => {
     if (where) res = whereFn(where, res);
     if (any_scal) executeScalars(res, scals);
 
-
     if (grouping) {
         const used = concat(strs, sa, hc, oc);
         const columns = any_aggr ? concat(used, aggrs) : used;
@@ -1141,7 +1138,6 @@ const _selectSQL = (params, distinct, top, n) => {
         res = executeAggregates(partitions, res, columns);
         if (having) res = whereFn(having, res);
     }
-
 
     const sel_columns = any_Fn ? map (fnToAlias) (selected_columns) : strs;
     if (!grouping && distinct && !nul(res)) res = getDistinct(sel_columns, res);
