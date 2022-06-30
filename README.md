@@ -56,9 +56,6 @@ console.log(drawTable(query()))
 - [Aggregate functions](#aggregate-functions)
 - [Groupby](#groupby)
 - [Having](#having)
-- [Window functions](#window-functions)
-    - [Aggregate](#aggregate)
-    - [Non aggregate](#non-aggregate)
 - [Orderby](#orderby)
 
 
