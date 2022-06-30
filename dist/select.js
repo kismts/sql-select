@@ -73,7 +73,6 @@ const _pick = keys => obj => {
 
 const _select = keys => objs => map (_pick(keys)) (objs);
 
-
 const pickTS = tss => obj => {
     const res = {};
     for (let keys of tss) res[keys[0]] = obj[keys[1]] == null ? null : obj[keys[1]];
@@ -87,7 +86,6 @@ const pick2 = (keys1, keys2, fn) => (obj1, obj2) => {
     if (fn) fn(res, obj1, obj2);
     return res;
 };
-
 
 const pick2KTS = (keys, tss, fn) => (obj1, obj2) => {
     const res = {};
@@ -140,7 +138,6 @@ const descn = fn => (x, y) => -cmp_nul (fn(x), fn(y), cmp2);
 const ascn_loc = fn => (x, y) => (x = fn(x), cmp_nul (x, fn(y), isString(x) ? cmp3 : cmp2));
 const descn_loc = fn => (x, y) => (x = fn(x), -cmp_nul (x, fn(y), isString(x) ? cmp3 : cmp2));
 
-
 class SqlSelectError extends Error {}
 const _throw = str => { throw new SqlSelectError(str); };
 
@@ -160,7 +157,6 @@ const _prodSQL = ({ fn, t1, t2 }) => {
     }
     return res;
 };
-
 
 const buildHash = (xs, str, map) => {
     let key, value;
@@ -234,7 +230,6 @@ const hashjoin = obj => flip(obj, false, false);
 const leftjoin = obj => flip(obj, true, false);
 const rightjoin = obj => flip(obj, false, true);
 const fulljoin = obj => flip(obj, true, true);
-
 
 const checkSub = (sub, xs, ambs, from, clause) => {
     if (!isSubset(sub, xs)) {
@@ -550,7 +545,6 @@ const checkScalar = (fn, aa, alias) => {
     fn.scal = true;
 };
 
-
 const checkAliases = fns => {
     const aa = [];
     let alias;
@@ -591,7 +585,6 @@ const checkAggregateFn = (fn, ind) => {
 };
 
 const isNested = (aggr, p, aliases) => aggr && isElem(p, aliases);
-
 
 const scalInd = 0, startInd = 1, restInd = 2;
 const checkNesting = (fn, root, input, ambs, ind, aliases) => {
@@ -1165,7 +1158,6 @@ export const LEFT_JOIN = { join: true, fn: leftjoin };
 export const RIGHT_JOIN = { join: true, fn: rightjoin, fnplus: rightjoinFn };
 export const FULL_JOIN = { join: true, fn: fulljoin, fnplus: fulljoinFn };
 
-
 export const ON = (str1, str2) => {
     if (isString(str1)) str1 = trim(str1);
     if (isString(str2)) str2 = trim(str2);
@@ -1176,7 +1168,6 @@ export const USING = str => {
     if (isString(str)) str = trim(str);
     return { ON: true, str1: str, str2: str, using: true };
 };
-
 
 export const COUNT = (...ps) => aggr(ps, _count, false);
 export const SUM = (...ps) => aggr(ps, _sum, false);
